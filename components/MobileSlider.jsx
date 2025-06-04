@@ -87,7 +87,7 @@ export function MobileSlider({ isInView }) {
       {/* Slider Container */}
       <div
         ref={sliderRef}
-        className="relative w-full bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-2xl min-h-[450px]"
+        className="relative w-full bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-2xl overflow-hidden min-h-[450px]"
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
@@ -131,7 +131,7 @@ export function MobileSlider({ isInView }) {
         {/* Navigation Arrows */}
         <button
           onClick={prevSlide}
-          className={`absolute -left-3 top-1/2 -translate-y-1/2 bg-gray-800/80 hover:bg-gray-700/80 text-white p-1.5 rounded-full transition-colors duration-200 z-20 ${
+          className={`absolute left-0 top-1/2 -translate-y-1/2 bg-gray-800/80 hover:bg-gray-700/80 text-white p-1.5 rounded-full transition-colors duration-200 z-20 ${
             currentSlide === 0 ? "opacity-50 cursor-not-allowed" : "opacity-100"
           }`}
           disabled={currentSlide === 0}
@@ -142,7 +142,7 @@ export function MobileSlider({ isInView }) {
 
         <button
           onClick={nextSlide}
-          className={`absolute -right-3 top-1/2 -translate-y-1/2 bg-gray-800/80 hover:bg-gray-700/80 text-white p-1.5 rounded-full transition-colors duration-200 z-20 ${
+          className={`absolute right-0 top-1/2 -translate-y-1/2 bg-gray-800/80 hover:bg-gray-700/80 text-white p-1.5 rounded-full transition-colors duration-200 z-20 ${
             currentSlide === CATEGORIES.length - 1
               ? "opacity-50 cursor-not-allowed"
               : "opacity-100"
