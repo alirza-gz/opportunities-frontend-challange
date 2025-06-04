@@ -2,12 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { generateMockData, updateMarketData } from "../lib/market-data";
 import { MarketItem } from "./MarketItem";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-
-const CATEGORIES = [
-  { id: "hot", title: "Hot List", icon: <AiOutlineFire size={16}/> },
-  { id: "new", title: "New Coins", icon: <IoMdStarOutline size={16}/> },
-  { id: "gainers", title: "Top Gainers", icon: <HiArrowTrendingUp size={16}/> },
-];
+import { CATEGORIES } from "../lib/data";
 
 
 export function MobileSlider({ isInView }) {
@@ -109,9 +104,9 @@ export function MobileSlider({ isInView }) {
                 : "opacity-0 translate-x-full z-0"
             }`}
           >
-            <div className="flex items-center gap-2 mb-6">
-              <span className="text-xl">{category.icon}</span>
-              <h3 className="text-lg font-semibold text-white">
+            <div className="flex items-center gap-x-1 mb-6 text-violet-400">
+              <span >{category.icon}</span>
+              <h3 className="text-sm font-semibold">
                 {category.title}
               </h3>
             </div>

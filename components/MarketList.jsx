@@ -1,15 +1,7 @@
 import { useState, useEffect } from "react";
 import { generateMockData, updateMarketData } from "../lib/market-data";
 import { MarketItem } from "./MarketItem";
-import { AiOutlineFire } from "react-icons/ai";
-import { IoMdStarOutline } from "react-icons/io";
-import { HiArrowTrendingUp } from "react-icons/hi2";
-
-const CATEGORIES = [
-  { id: "hot", title: "Hot List", icon: <AiOutlineFire size={16}/> },
-  { id: "new", title: "New Coins", icon: <IoMdStarOutline size={16}/> },
-  { id: "gainers", title: "Top Gainers", icon: <HiArrowTrendingUp size={16}/> },
-];
+import { CATEGORIES } from "../lib/data";
 
 export function MarketList({ isInView }) {
   const [marketData, setMarketData] = useState({
