@@ -4,7 +4,6 @@ import { MarketItem } from "./MarketItem";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { CATEGORIES } from "../lib/data";
 
-
 export function MobileSlider({ isInView }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [marketData, setMarketData] = useState({
@@ -16,7 +15,6 @@ export function MobileSlider({ isInView }) {
   const [touchEnd, setTouchEnd] = useState(null);
   const sliderRef = useRef(null);
 
-  // Minimum swipe distance (in px)
   const minSwipeDistance = 50;
 
   useEffect(() => {
@@ -83,7 +81,7 @@ export function MobileSlider({ isInView }) {
   };
 
   return (
-    <div className="w-full max-w-full">
+    <div className="w-full max-w-full relative">
       {/* Slider Container */}
       <div
         ref={sliderRef}
@@ -105,7 +103,7 @@ export function MobileSlider({ isInView }) {
             }`}
           >
             <div className="flex items-center gap-x-1 mb-6 text-violet-400">
-              <span >{category.icon}</span>
+              <span>{category.icon}</span>
               <h3 className="text-sm font-semibold">
                 {category.title}
               </h3>
@@ -127,32 +125,32 @@ export function MobileSlider({ isInView }) {
             </div>
           </div>
         ))}
-
-        {/* Navigation Arrows */}
-        <button
-          onClick={prevSlide}
-          className={`absolute left-0 top-1/2 -translate-y-1/2 bg-gray-800/80 hover:bg-gray-700/80 text-white p-1.5 rounded-full transition-colors duration-200 z-20 ${
-            currentSlide === 0 ? "opacity-50 cursor-not-allowed" : "opacity-100"
-          }`}
-          disabled={currentSlide === 0}
-          aria-label="Previous slide"
-        >
-          <IoIosArrowBack size={17} />
-        </button>
-
-        <button
-          onClick={nextSlide}
-          className={`absolute right-0 top-1/2 -translate-y-1/2 bg-gray-800/80 hover:bg-gray-700/80 text-white p-1.5 rounded-full transition-colors duration-200 z-20 ${
-            currentSlide === CATEGORIES.length - 1
-              ? "opacity-50 cursor-not-allowed"
-              : "opacity-100"
-          }`}
-          disabled={currentSlide === CATEGORIES.length - 1}
-          aria-label="Next slide"
-        >
-          <IoIosArrowForward size={17}/>
-        </button>
       </div>
+
+      {/* Navigation Arrows */}
+      <button
+        onClick={prevSlide}
+        className={`absolute -left-3 top-1/2 -translate-y-1/2 bg-gray-800/80 hover:bg-gray-700/80 text-white p-1.5 rounded-full transition-colors duration-200 z-20 ${
+          currentSlide === 0 ? "opacity-50 cursor-not-allowed" : "opacity-100"
+        }`}
+        disabled={currentSlide === 0}
+        aria-label="Previous slide"
+      >
+        <IoIosArrowBack size={17} />
+      </button>
+
+      <button
+        onClick={nextSlide}
+        className={`absolute -right-3 top-1/2 -translate-y-1/2 bg-gray-800/80 hover:bg-gray-700/80 text-white p-1.5 rounded-full transition-colors duration-200 z-20 ${
+          currentSlide === CATEGORIES.length - 1
+            ? "opacity-50 cursor-not-allowed"
+            : "opacity-100"
+        }`}
+        disabled={currentSlide === CATEGORIES.length - 1}
+        aria-label="Next slide"
+      >
+        <IoIosArrowForward size={17}/>
+      </button>
 
       {/* Dots Indicator */}
       <div className="flex justify-center gap-2 mt-6">
