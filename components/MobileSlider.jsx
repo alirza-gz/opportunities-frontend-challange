@@ -4,10 +4,11 @@ import { MarketItem } from "./MarketItem";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 const CATEGORIES = [
-  { id: "hot", title: "Hot List", icon: "🔥" },
-  { id: "new", title: "New Coins", icon: "⭐" },
-  { id: "gainers", title: "Top Gainers", icon: "📈" },
+  { id: "hot", title: "Hot List", icon: <AiOutlineFire size={16}/> },
+  { id: "new", title: "New Coins", icon: <IoMdStarOutline size={16}/> },
+  { id: "gainers", title: "Top Gainers", icon: <HiArrowTrendingUp size={16}/> },
 ];
+
 
 export function MobileSlider({ isInView }) {
   const [currentSlide, setCurrentSlide] = useState(0);
